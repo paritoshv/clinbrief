@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@theme {
+  /* The basin's own palette. Cool paper — never cream. */
+  --color-paper: #f6f7f8;
+  --color-paper-deep: #eceef1;
+  --color-mist: #bcc2cb;
+  /* Dilute is a LINE colour. It measures 3.3:1 on paper, so it never sets text. */
+  --color-dilute: #7a8698;
+  /* Quiet is its text-safe partner: 6.1:1 on paper. */
+  --color-quiet: #4c5a70;
+  --color-current: #243a63;
+  --color-depth: #0b1d3a;
+  --color-sumi: #1a1a1a;
+
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-azeret), ui-monospace, monospace;
+
+  /* Strong curves. The built-in easings are too weak to read as intentional. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-depth);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-current) 22%, transparent);
+  color: var(--color-depth);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-current);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Paper laid on water ────────────────────────────────────────────────
+   Sheets carry the content. The water shows in the gutters between them,
+   so the page reads as one continuous basin with paper resting on it. */
+
+.sheet {
+  position: relative;
+  isolation: isolate;
+  background: var(--color-paper);
+}
+
+.sheet > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Washi fibre. Low frequency so it reads as pulp and thread rather than as TV
+   static, and at a strength that actually survives a 2x render. */
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62 0.34' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)' opacity='0.19'/%3E%3C/svg%3E");
+}
+
+/* Deckle: the torn edge of a hand-made sheet. Rendered as its own layer, so the
+   displacement filter never touches live text — and inheriting the sheet's own
+   ground, so a dark sheet tears dark. */
+.deckle {
+  position: absolute;
+  left: -2%;
+  width: 104%;
+  height: 26px;
+  background: var(--sheet-bg, var(--color-paper));
+  filter: url(#deckle);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.deckle--top {
+  top: -13px;
+}
+
+.deckle--bottom {
+  bottom: -13px;
+}
+
+/* ── Type ─────────────────────────────────────────────────────────────── */
+
+.display {
+  font-weight: 400;
+  letter-spacing: -0.032em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.measure {
+  max-width: 68ch;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-dilute) 34%, transparent);
+}
+
+/* ── The one authored reveal ──────────────────────────────────────────────
+   Content is visible by default; JS only adds the settle. Nothing is gated
+   behind a script that might not run. */
+
+.settle {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .settle {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 900ms var(--ease-out),
+      transform 900ms var(--ease-out);
+  }
+
+  .js .settle[data-settled="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+
+/* Pressing a pill soaks ink into it from the rim inward — an inset spread rather
+   than a background swap, so the fill has somewhere to travel from. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 999px;
+  padding: 0.8125rem 1.5rem;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  transition:
+    transform 160ms var(--ease-out),
+    box-shadow 300ms var(--ease-out),
+    background-color 220ms ease,
+    color 200ms ease,
+    border-color 220ms ease;
+}
+
+.pill:active {
+  transform: scale(0.972);
+  box-shadow: inset 0 0 0 3.25rem var(--color-current);
+  color: var(--color-paper);
+  transition:
+    transform 120ms var(--ease-out),
+    box-shadow 180ms var(--ease-out),
+    color 140ms ease;
+}
+
+.pill:active .dye-dot {
+  outline-color: color-mix(in srgb, var(--color-paper) 60%, transparent);
+}
+
+.pill-solid {
+  background: var(--color-depth);
+  color: var(--color-paper);
+  border: 1px solid var(--color-depth);
+}
+
+.pill-ghost {
+  border: 1px solid color-mix(in srgb, var(--color-dilute) 55%, transparent);
+  color: var(--color-depth);
+  background: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pill-solid:hover {
+    background: var(--color-current);
+    border-color: var(--color-current);
+  }
+
+  .pill-ghost:hover {
+    border-color: var(--color-current);
+    background: color-mix(in srgb, var(--color-current) 6%, transparent);
+  }
+}
+
+/* Ink ring — the concentric ripple a drop leaves. Used as the mark. */
+.ripple-mark {
+  transition: transform 400ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover > .ripple-mark {
+    transform: scale(1.06);
+  }
+}

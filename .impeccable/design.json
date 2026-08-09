@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-09T00:00:00.000Z",
+  "title": "Design System: Asha",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#F6F7F8",
+        "tonalRamp": ["#1B1D20", "#33363B", "#4C5057", "#6A6F78", "#8F949C", "#B4B9C0", "#D6D9DD", "#F6F7F8"]
+      },
+      "paper-deep": {
+        "role": "neutral",
+        "displayName": "Damp Paper",
+        "canonical": "#ECEEF1",
+        "tonalRamp": ["#191B1E", "#303338", "#484C53", "#65696F", "#8A8E96", "#AFB3BA", "#CFD3D8", "#ECEEF1"]
+      },
+      "dilute": {
+        "role": "neutral",
+        "displayName": "Dilute (line only)",
+        "canonical": "#7A8698",
+        "tonalRamp": ["#171B21", "#252C35", "#37404C", "#4B5665", "#616E80", "#7A8698", "#A3ACBA", "#D2D7DE"]
+      },
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Quiet",
+        "canonical": "#4C5A70",
+        "tonalRamp": ["#101318", "#1B2029", "#28303B", "#37414F", "#4C5A70", "#6C7C94", "#9BA7B8", "#CDD4DD"]
+      },
+      "current": {
+        "role": "secondary",
+        "displayName": "Wet Current",
+        "canonical": "#243A63",
+        "tonalRamp": ["#0A1120", "#111C33", "#182746", "#1E3155", "#243A63", "#3D5A8F", "#7089B8", "#B6C4DC"]
+      },
+      "depth": {
+        "role": "primary",
+        "displayName": "Basin Indigo",
+        "canonical": "#0B1D3A",
+        "tonalRamp": ["#040A15", "#0B1D3A", "#12305F", "#1A4384", "#2359A9", "#3F7ACB", "#7BA5DE", "#C0D2EE"]
+      },
+      "sumi": {
+        "role": "tertiary",
+        "displayName": "Carbon Sumi",
+        "canonical": "#1A1A1A",
+        "tonalRamp": ["#0A0A0A", "#1A1A1A", "#2E2E2E", "#454545", "#5F5F5F", "#8A8A8A", "#B8B8B8", "#E4E4E4"]
+      }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Headline", "purpose": "The hero only, plus the closing contact line. One per page." },
+      "display": { "displayName": "Display", "purpose": "Section headings. One per sheet." },
+      "title": { "displayName": "Title", "purpose": "Sub-heads inside a section list; the brief card title." },
+      "body": { "displayName": "Body", "purpose": "All running prose, capped at a 68ch measure." },
+      "label": { "displayName": "Label", "purpose": "Wide-tracked uppercase mono micro-label for data keys, speaker attributions and disclaimers. Never an eyebrow above a headline." },
+      "data": { "displayName": "Data", "purpose": "Short machine-flavoured values: brief fields, extracted facts, ordinals." },
+      "script": { "displayName": "Script", "purpose": "A patient utterance set in its own Indic face with lang set." }
+    },
+    "shadows": [
+      {
+        "name": "lifted-sheet",
+        "value": "0 34px 70px -28px rgba(4, 12, 26, 0.62), 0 6px 16px -8px rgba(4, 12, 26, 0.4)",
+        "purpose": "A paper card lifted off an ink-toned sheet. The brief card, and nothing else at this weight."
+      },
+      {
+        "name": "resting-sheet",
+        "value": "0 22px 48px -26px rgba(4, 12, 26, 0.42)",
+        "purpose": "A paper card resting on open water rather than lifted off a dark ground."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "The system curve. Settle reveals, pill press, ripple-mark scale. The built-in easings read as unintentional."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Declared in the theme for symmetric in-out moves; not yet used by any built surface."
+      },
+      {
+        "name": "settle",
+        "value": "opacity 900ms var(--ease-out), transform 900ms var(--ease-out); translateY(14px)",
+        "purpose": "The page's one authored reveal. Additive only: released under .js plus prefers-reduced-motion: no-preference, staggered 45-120ms between siblings."
+      },
+      {
+        "name": "press",
+        "value": "transform 160ms var(--ease-out); scale(0.972)",
+        "purpose": "Pill press. Physical response instead of a colour flash."
+      },
+      {
+        "name": "tint",
+        "value": "background-color 220ms ease, color 220ms ease, border-color 220ms ease",
+        "purpose": "Pill hover ink-fill toward Wet Current."
+      },
+      {
+        "name": "nav-land",
+        "value": "colors 500ms",
+        "purpose": "The nav landing on paper past 72% of viewport height: 88% paper ground, 10px backdrop blur, hairline base."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" }
+    ],
+    "dyes": [
+      { "language": "Hindi", "value": "#12285C" },
+      { "language": "Bengali", "value": "#7A2036" },
+      { "language": "Tamil", "value": "#1A1A1A" },
+      { "language": "Telugu", "value": "#145257" },
+      { "language": "Marathi", "value": "#3B2A6B" },
+      { "language": "Kannada", "value": "#6B4A12" },
+      { "language": "Malayalam", "value": "#123D22" },
+      { "language": "Gujarati", "value": "#5C2A5C" },
+      { "language": "Punjabi", "value": "#1F4E8C" },
+      { "language": "Odia", "value": "#6B2B14" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Pill",
+      "kind": "button",
+      "refersTo": "pill-solid",
+      "description": "The primary action. Indigo stamp that fills to Wet Current on hover and scales down on press.",
+      "html": "<a class=\"ds-pill ds-pill-solid\" href=\"#\">Read the brief it produces<svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.8125rem 1.5rem; font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 400; letter-spacing: -0.01em; text-decoration: none; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 220ms ease, color 220ms ease, border-color 220ms ease; } .ds-pill:active { transform: scale(0.972); } .ds-pill:focus-visible { outline: 2px solid #243A63; outline-offset: 3px; border-radius: 999px; } .ds-pill-solid { background: #0B1D3A; color: #F6F7F8; border: 1px solid #0B1D3A; } @media (hover: hover) and (pointer: fine) { .ds-pill-solid:hover { background: #243A63; border-color: #243A63; } }"
+    },
+    {
+      "name": "Ghost Pill",
+      "kind": "button",
+      "refersTo": "pill-ghost",
+      "description": "The secondary action. A dilute hairline outline that moves to Wet Current and washes 6% on hover.",
+      "html": "<a class=\"ds-pill ds-pill-ghost\" href=\"#\">Talk to us about a pilot</a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.8125rem 1.5rem; font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 400; letter-spacing: -0.01em; text-decoration: none; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 220ms ease, color 220ms ease, border-color 220ms ease; } .ds-pill:active { transform: scale(0.972); } .ds-pill-ghost { background: transparent; color: #0B1D3A; border: 1px solid rgba(122, 134, 152, 0.55); } .ds-pill-ghost:focus-visible { outline: 2px solid #243A63; outline-offset: 3px; } @media (hover: hover) and (pointer: fine) { .ds-pill-ghost:hover { border-color: #243A63; background: rgba(36, 58, 99, 0.06); } }"
+    },
+    {
+      "name": "Dye Pill",
+      "kind": "chip",
+      "refersTo": "dye-pill",
+      "description": "A language chip carrying its endonym, its English name, and the dye colour it drops into the shared basin. Shown selected and unselected.",
+      "html": "<div role=\"group\" aria-label=\"Choose a language\" style=\"display:flex;gap:0.625rem;flex-wrap:wrap\"><button type=\"button\" class=\"ds-dye ds-dye-on\" aria-pressed=\"true\"><span class=\"ds-dye-dot\" style=\"background:#12285C;outline:1px solid rgba(246,247,248,0.5)\"></span><span>हिन्दी</span><span class=\"ds-dye-en\">Hindi</span></button><button type=\"button\" class=\"ds-dye\" aria-pressed=\"false\"><span class=\"ds-dye-dot\" style=\"background:#145257\"></span><span>తెలుగు</span><span class=\"ds-dye-en\">Telugu</span></button></div>",
+      "css": ".ds-dye { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.625rem 1rem; font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-size: 0.875rem; font-weight: 400; cursor: pointer; background: #F6F7F8; color: #0B1D3A; border: 1px solid rgba(122, 134, 152, 0.45); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 220ms ease, color 220ms ease, border-color 220ms ease; } .ds-dye:active { transform: scale(0.972); } .ds-dye:focus-visible { outline: 2px solid #243A63; outline-offset: 3px; } .ds-dye-on { background: #0B1D3A; color: #F6F7F8; border-color: #0B1D3A; } .ds-dye-dot { display: inline-block; width: 9px; height: 9px; flex-shrink: 0; border-radius: 999px; } .ds-dye-en { opacity: 0.55; }"
+    },
+    {
+      "name": "Washi Sheet",
+      "kind": "card",
+      "refersTo": "sheet-paper",
+      "description": "The page's structural surface: an opaque ground with fibre grain and torn deckle edges rendered as separate layers above and below.",
+      "html": "<svg aria-hidden=\"true\" width=\"0\" height=\"0\" style=\"position:absolute\"><filter id=\"ds-deckle\" x=\"-5%\" y=\"-60%\" width=\"110%\" height=\"220%\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.02 0.14\" numOctaves=\"4\" seed=\"7\" result=\"noise\"/><feDisplacementMap in=\"SourceGraphic\" in2=\"noise\" scale=\"17\" xChannelSelector=\"R\" yChannelSelector=\"G\"/></filter></svg><section class=\"ds-sheet\"><span class=\"ds-deckle ds-deckle-top\" aria-hidden=\"true\"></span><h2 class=\"ds-sheet-h\">A phone call is the accessibility strategy.</h2><p class=\"ds-sheet-p\">Sheets carry the content. The water shows in the gutters between them.</p><span class=\"ds-deckle ds-deckle-bottom\" aria-hidden=\"true\"></span></section>",
+      "css": ".ds-sheet { position: relative; isolation: isolate; background: #F6F7F8; color: #0B1D3A; --ds-sheet-bg: #F6F7F8; padding: 48px 32px; margin: 26px 0; } .ds-sheet > * { position: relative; z-index: 1; } .ds-sheet::after { content: \"\"; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; mix-blend-mode: multiply; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23f)' opacity='0.055'/%3E%3C/svg%3E\"); } .ds-deckle { position: absolute; left: -2%; width: 104%; height: 26px; background: var(--ds-sheet-bg); filter: url(#ds-deckle); z-index: 0; pointer-events: none; } .ds-deckle-top { top: -13px; } .ds-deckle-bottom { bottom: -13px; } .ds-sheet-h { font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-weight: 400; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 0.98; letter-spacing: -0.032em; text-wrap: balance; margin: 0; } .ds-sheet-p { font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-size: 1.0625rem; line-height: 1.62; max-width: 68ch; margin: 1.5rem 0 0; color: color-mix(in srgb, #0B1D3A 72%, #7A8698); }"
+    },
+    {
+      "name": "Brief Card",
+      "kind": "custom",
+      "refersTo": "brief-card",
+      "description": "The signature surface: a paper sheet lifted off an ink-toned section. Hairline-separated fields, mono metadata, and unresolved fields marked up in Wet Current.",
+      "html": "<div style=\"background:#0B1D3A;padding:40px 24px\"><article class=\"ds-brief\"><header class=\"ds-brief-head\"><div class=\"ds-brief-row\"><h3 class=\"ds-brief-title\">Pre-consultation brief</h3><p class=\"ds-label\">Illustrative — not a real patient</p></div><div class=\"ds-rule\"></div><dl class=\"ds-brief-meta\"><div><dt class=\"ds-label\">Language</dt><dd class=\"ds-data\">Hindi</dd></div><div><dt class=\"ds-label\">Duration</dt><dd class=\"ds-data\">4 min 12 s</dd></div></dl></header><div class=\"ds-field\"><div class=\"ds-field-line\"></div><p class=\"ds-label ds-field-label\">Presenting complaint</p><ul class=\"ds-field-list\"><li>Burning in both feet, worse at night, wakes her.</li></ul></div><div class=\"ds-field\"><div class=\"ds-field-line ds-field-line-open\"></div><p class=\"ds-label ds-field-label ds-field-label-open\">Not settled</p><ul class=\"ds-field-list\"><li>Evening metformin dose — adherence unclear.</li></ul></div></article></div>",
+      "css": ".ds-brief { position: relative; background: #F6F7F8; color: #0B1D3A; max-width: 52rem; margin: 0 auto; padding: 40px 28px; box-shadow: 0 34px 70px -28px rgba(4,12,26,0.62), 0 6px 16px -8px rgba(4,12,26,0.4); } .ds-brief-head { margin-bottom: 36px; } .ds-brief-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; } .ds-brief-title { font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-weight: 400; font-size: 1.375rem; letter-spacing: -0.02em; margin: 0; } .ds-label { font-family: var(--font-mono, 'Azeret Mono', ui-monospace, monospace); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #4C5A70; margin: 0; } .ds-data { font-family: var(--font-mono, 'Azeret Mono', ui-monospace, monospace); font-size: 0.8125rem; line-height: 1.4; color: #0B1D3A; margin: 6px 0 0; } .ds-rule { height: 1px; background: rgba(122, 134, 152, 0.34); margin: 20px 0; } .ds-brief-meta { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px 32px; margin: 0; } .ds-field { margin-top: 32px; } .ds-field-line { height: 1px; background: rgba(122, 134, 152, 0.32); margin-bottom: 12px; } .ds-field-line-open { background: rgba(36, 58, 99, 0.55); } .ds-field-label { margin-bottom: 12px; } .ds-field-label-open { color: #243A63; } .ds-field-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); font-size: 0.9688rem; line-height: 1.62; color: color-mix(in srgb, #0B1D3A 88%, #7A8698); }"
+    },
+    {
+      "name": "Landed Nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Fixed header in its landed state: 88% paper ground, 10px backdrop blur, hairline base. Transparent over the hero until 72% of viewport height.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#top\" aria-label=\"Asha, back to top\"><svg class=\"ds-ripple\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"2.4\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"12\" r=\"6.1\" stroke=\"currentColor\" stroke-width=\"1.15\" opacity=\"0.72\"/><circle cx=\"12\" cy=\"12\" r=\"10.2\" stroke=\"currentColor\" stroke-width=\"0.85\" opacity=\"0.38\"/></svg><span class=\"ds-nav-word\">Asha</span></a><nav class=\"ds-nav-links\" aria-label=\"Sections\"><a href=\"#call\">The call</a><a href=\"#brief\">The brief</a><a href=\"#limits\">Limits</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 16px 24px; background: rgba(246, 247, 248, 0.88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(122, 134, 152, 0.3); font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); transition: background-color 500ms, border-color 500ms; } .ds-nav-brand { display: inline-flex; align-items: center; gap: 0.625rem; color: #0B1D3A; text-decoration: none; } .ds-nav-word { font-size: 1.0625rem; letter-spacing: 0.2em; text-transform: uppercase; } .ds-ripple { transition: transform 400ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-nav-brand:hover .ds-ripple { transform: scale(1.06); } } .ds-nav-links { display: flex; align-items: center; gap: 32px; } .ds-nav-links a { font-size: 0.875rem; color: #243A63; text-decoration: none; transition: opacity 200ms; } .ds-nav-links a:hover { opacity: 0.6; } .ds-nav-links a:focus-visible { outline: 2px solid #243A63; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Speaker Turn",
+      "kind": "custom",
+      "refersTo": "script",
+      "description": "One turn of the illustrative call: the utterance in its own script face, an English gloss beneath, and the fact it contributed to the brief pulled out in mono.",
+      "html": "<div class=\"ds-turn\"><div class=\"ds-turn-main\"><div class=\"ds-turn-who\"><span class=\"ds-turn-dot\" aria-hidden=\"true\"></span><span class=\"ds-label ds-turn-label\">Patient</span></div><p class=\"ds-turn-said\" lang=\"hi\">पैरों में जलन होती है… रात को ज़्यादा। नींद खुल जाती है।</p><p class=\"ds-turn-gloss\">Burning in my feet — worse at night. It wakes me.</p></div><aside class=\"ds-turn-caught\"><p class=\"ds-label ds-turn-caught-label\">Into the brief</p><p class=\"ds-turn-caught-body\">Nocturnal burning paraesthesia, both feet. Sleep disturbed.</p></aside></div>",
+      "css": ".ds-turn { display: grid; gap: 16px 48px; grid-template-columns: minmax(0, 40rem) minmax(0, 20rem); font-family: var(--font-sans, 'Schibsted Grotesk', system-ui, sans-serif); } .ds-turn-who { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 10px; } .ds-turn-dot { display: inline-block; width: 7px; height: 7px; border-radius: 999px; background: #0B1D3A; } .ds-label { font-family: var(--font-mono, 'Azeret Mono', ui-monospace, monospace); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; margin: 0; } .ds-turn-label { color: #243A63; } .ds-turn-said { font-family: var(--font-deva, 'Noto Sans Devanagari', sans-serif); font-size: clamp(1.125rem, 1.7vw, 1.375rem); line-height: 1.72; color: #0B1D3A; margin: 0; } .ds-turn-gloss { font-size: 0.9375rem; line-height: 1.6; color: #4C5A70; margin: 10px 0 0; } .ds-turn-caught { border-top: 1px solid rgba(36, 58, 99, 0.34); padding-top: 12px; } .ds-turn-caught-label { color: #243A63; margin-bottom: 8px; } .ds-turn-caught-body { font-family: var(--font-mono, 'Azeret Mono', ui-monospace, monospace); font-size: 0.8125rem; line-height: 1.65; color: color-mix(in srgb, #0B1D3A 80%, #7A8698); margin: 0; } @media (max-width: 768px) { .ds-turn { grid-template-columns: 1fr; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Suminagashi Basin",
+    "overview": "The whole page is one basin of water with ink floating on it, and the content is paper laid on the surface. A single WebGL fluid simulation is fixed behind every section; sheets of washi — three tones of it — scroll over the top, and the gaps between the sheets are where the water shows through. The ink is not decoration bolted to a hero: it is the ground the site is built on, and it stays live for the whole scroll. The metaphor is load-bearing rather than ornamental — the call is ink dropped in water, the doctor's brief is the sheet lifted off it.\n\nThe mood is quiet, cool and hand-made. Nothing glows. The fluid display pass composites subtractively over paper white with a Beer–Lambert coverage curve, so ink darkens the water the way ink actually does; there is no additive bloom anywhere in the system, in the shader or in the CSS. Type is held to one weight, one metric ramp, and a left margin. Where a sheet has to end, it tears rather than rounds: deckled edges rendered through an SVG turbulence-displacement filter. The result is dense with material but very low on chrome — no cards-with-icons, no gradient panels, no glass.\n\nThe build refuses the AI-health hero explicitly and completely: no dark gradient, no glowing waveform, no tilted dashboard mockup, no logo row, no product screenshot in perspective. It also refuses government-adjacent visual language — no national colours, no emblem-style mark — because the product must never read as state-affiliated. The single mark is a drawn ripple: the concentric rings one drop leaves on still water.",
+    "keyCharacteristics": [
+      "One live WebGL ink basin fixed behind the entire page; content sheets scroll over it",
+      "Cool paper white and indigo — never cream, never warm",
+      "Torn deckled sheet edges instead of corner radii; pills are the only round form",
+      "One type weight (400), one display metric, hairline rules, wide-tracked mono micro-labels",
+      "Ink is subtractive: colour arrives by darkening, never by glowing",
+      "Nine real Indic script faces, because the scripts are the product's argument",
+      "Content visible by default; motion is additive and opt-out-aware"
+    ],
+    "rules": [
+      {
+        "name": "The Dilute Line Rule",
+        "body": "--color-dilute draws lines and only lines. It fails text contrast on paper (3.3:1). Any text you were about to paint dilute takes --color-quiet (6.1:1) instead. No exceptions, including 11px labels.",
+        "section": "colors"
+      },
+      {
+        "name": "The Subtractive Rule",
+        "body": "Nothing in this world glows. Ink darkens paper; the display shader mixes toward the dye's own hue over the paper constant with 1 - exp(-a * 3.2) coverage, and the interface follows the same physics — no additive blends, no bloom, no light-on-dark gradient, no coloured glow behind anything.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mixed-Ink Rule",
+        "body": "Secondary text is not its own token. On paper grounds it is color-mix(in srgb, var(--color-depth) 72–88%, var(--color-dilute)); on ink grounds it is color-mix(in srgb, var(--color-paper) 55–74%, var(--color-current)). Mixing from the ground's own ink keeps every tint inside the basin's family instead of introducing greys.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Weight Rule",
+        "body": "The page uses a single weight. Nothing is bold — there is not one weight utility in the entire component tree — and font-synthesis-weight: none forbids the browser from faking one. Hierarchy comes from size, colour and space. The only exception is the mono micro-label at 500, which needs it to hold at 11px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Endonym Rule",
+        "body": "A language is written in its own script, in a real face for that script, with lang set on the element. Never transliterate, never substitute a fallback stack, never show a language name in Latin only. The nine script faces are preload: false so the basin still paints first.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Annotation Rule",
+        "body": "Azeret Mono never sets a sentence. It appears as a wide-tracked uppercase micro-label or as a short machine-flavoured value, and nowhere else.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Basin Rule",
+        "body": "There is exactly one canvas, fixed behind everything, owned by a single module-scope handle. Sections do not get their own backgrounds, videos, or gradients-as-atmosphere; if a section wants ink, it drops ink into the shared basin. The canvas never takes pointer events — stirring is bound to window — so scrolling and every control above it behave normally.",
+        "section": "layout"
+      },
+      {
+        "name": "The Water Gap Rule",
+        "body": "The space between two sheets is the design, not padding that got away. Never close a gap by making adjacent sheets contiguous; the water has to show through.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper Wash Rule",
+        "body": "Where type must sit over live water, put a paper-tinted linear gradient underneath it (color-mix(in srgb, var(--color-paper) 30–95%, transparent), pointer-events-none, direction chosen to leave the ink visible). Never a blur, never a dark scrim, never a solid box.",
+        "section": "layout"
+      },
+      {
+        "name": "The Additive Reveal Rule",
+        "body": "Content renders visible. .settle sets opacity: 1; transform: none at baseline; the hidden state exists only inside @media (prefers-reduced-motion: no-preference) scoped to .js on the document element. Nothing is ever gated behind a script that might not run, and reduced-motion users get the settled state immediately.",
+        "section": "layout"
+      },
+      {
+        "name": "The Deckle Layer Rule",
+        "body": "Deckled edges are separate absolutely-positioned <span> layers (104% wide, 26px tall, offset −13px, aria-hidden) that inherit the sheet's own ground through --sheet-bg and carry filter: url(#deckle). They are never pseudo-elements on the sheet itself and never wrap content, so the turbulence-displacement filter can never touch live text. A dark sheet tears dark because the layer reads the sheet's own background variable.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift-Only Shadow Rule",
+        "body": "A shadow means \"this sheet is off the one behind it\". Shadows are never used for hover feedback, never for buttons, never for inputs, and never as a hard offset. If nothing is lifted, nothing casts.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Torn Edge Rule",
+        "body": "Where a sheet ends, it tears. Do not introduce a corner radius on a sheet, card, or panel to soften it — the deckle is the softening. Radius belongs to pills and dots only.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do use --color-quiet (#4C5A70) for any small or secondary text; reserve --color-dilute (#7A8698) for lines, borders and dividers only.",
+      "Do build secondary tints with color-mix from the ground's own ink — depth-toward-dilute on paper, paper-toward-current on ink — instead of adding new grey tokens.",
+      "Do let the water show between sheets. A section that needs atmosphere becomes a transparent section with a paper wash, not a new background colour.",
+      "Do render deckle edges as separate aria-hidden layers that read --sheet-bg, so the displacement filter never touches text.",
+      "Do ship content visible and add motion on top: baseline .settle is settled, and the hidden state lives only inside .js plus prefers-reduced-motion: no-preference.",
+      "Do set every Indic string in its own Noto face with a lang attribute, and keep those faces preload: false.",
+      "Do gate hover treatments behind @media (hover: hover) and (pointer: fine).",
+      "Do keep one type weight and express hierarchy through size, colour and space.",
+      "Do draw icons as inline SVG in currentColor at a 1.15–1.3 stroke.",
+      "Do mark unresolved or uncertain information up, in Wet Current, rather than burying it."
+    ],
+    "donts": [
+      "Don't set text in --color-dilute. It is 3.3:1 on paper and will fail at any size.",
+      "Don't add glow, bloom, additive blending, or a dark-gradient hero. Ink darkens; it never emits.",
+      "Don't put a corner radius on a sheet, card or panel. The edge language is the tear; radius belongs to pills and dots.",
+      "Don't use shadow for hover, buttons, inputs, or emphasis — only for a sheet genuinely lifted off another sheet, and never as a hard offset.",
+      "Don't add a second canvas or a per-section background animation. One basin, shared, with sections dropping ink into it.",
+      "Don't introduce a bold weight or a third family. Two Latin families plus the script faces is the whole program.",
+      "Don't apply the #deckle filter to any element containing live text.",
+      "Don't rely on Tailwind's text-current / border-current utilities: this theme defines a colour token literally named current (#243A63), which shadows them. Set the colour explicitly.",
+      "Don't use warm paper, cream, or a national-colour palette; the ground is cool white and the world must never read as state-affiliated.",
+      "Don't reach for a glyph icon, an emoji, or an icon font in place of the drawn ripple mark and arrow."
+    ]
+  }
+}

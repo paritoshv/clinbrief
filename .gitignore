@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+build/
+.netlify/
+.env
+.env*.local
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-error.log*
+.vercel
+next-env.d.ts
+
+# Design-direction reference renders pulled down during the build. Large, and
+# regenerable from the URLs recorded in DESIGN.md.
+.impeccable/refs/

@@ -2,6 +2,10 @@
 [build]
   base = "asha"
   command = "npm run build"
+  # Relative to `base`, so this resolves to asha/.next. Set explicitly because a
+  # UI-configured publish directory of "asha" resolves to the base directory
+  # itself, which the Next runtime rejects — and netlify.toml overrides the UI.
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"

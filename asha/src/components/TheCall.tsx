@@ -14,7 +14,7 @@ export default function TheCall() {
                 style={{ color: "color-mix(in srgb, var(--color-depth) 72%, var(--color-dilute))" }}
               >
                 ClinBrief calls once. It names the hospital before anything else, because a patient
-                who does not know who is calling has already stopped listening. Then she asks the
+                who does not know who is calling has already stopped listening. Then it asks the
                 questions the doctor would have asked anyway, and lets the patient answer at their
                 own pace.
               </p>
